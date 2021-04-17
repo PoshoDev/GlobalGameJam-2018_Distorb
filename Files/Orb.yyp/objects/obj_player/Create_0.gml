@@ -29,10 +29,24 @@ image_speed = 0;
 
 if (x < room_width/2)
 {
+	char = 0;
+	
 	x = room_width/4;
 	y = room_height/2+40;
 	
-	gamepad_id = 0;
+	if (global.gamemode == gmode.single) {
+		gamepad_id =  0;
+		cont_move_h = gp_axislh;
+		cont_move_v = gp_axislv;
+		cont_parry =  gp_shoulderlb;
+	}
+	else {
+		gamepad_id =  0;
+		cont_move_h = gp_axislh;
+		cont_move_v = gp_axislv;
+		cont_parry =  gp_face1;
+	}
+	
 	pos_x_min = 30 + hitbox_x //0;
 	pos_x_max = (room_width/2)-30 - hitbox_x; //room_width/2;
 	global.player0 = self;
@@ -40,10 +54,24 @@ if (x < room_width/2)
 }
 else
 {
+	char = 1;
+	
 	x = (room_width/4)*3;
 	y = room_height/2+40;
 	
-	gamepad_id = 1;
+	if (global.gamemode == gmode.single) {
+		gamepad_id =  0;
+		cont_move_h = gp_axisrh;
+		cont_move_v = gp_axisrv;
+		cont_parry =  gp_shoulderrb;
+	}
+	else {
+		gamepad_id =  1;
+		cont_move_h = gp_axislh;
+		cont_move_v = gp_axislv;
+		cont_parry =  gp_face1;
+	}
+	
 	pos_x_min = room_width/2 + 30 + hitbox_x;
 	pos_x_max = room_width - 30 - hitbox_x;
 	global.player1 = self;

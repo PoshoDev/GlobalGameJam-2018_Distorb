@@ -1,12 +1,14 @@
 /// @description 
 //draw_rectangle_color(0, 0, room_width, room_height, make_color_hsv(a++, b++, c++), make_color_hsv(d++, e++, f++), make_color_hsv(g++, h++, i++), make_color_hsv(j++, k++, l++), false);
 
+draw_text(0, 0, "gamemode: "+string(global.gamemode));
+
 if (global.gamestart == 0)
 {
-	draw_sprite_ext(spr_button, gamepad_button_check(0, gp_face1), room_width/4, (room_height/3)*2, 0.75, 0.75, image_angle, image_blend, image_alpha);
-	draw_sprite_ext(spr_button, gamepad_button_check(1, gp_face1), (room_width/4)*3, (room_height/3)*2, 0.75, 0.75, image_angle, image_blend, image_alpha);
+	draw_sprite_ext(spr_button, gamepad_button_check(global.char0.gamepad_id, global.char0.cont_parry), room_width/4, (room_height/3)*2, 0.75, 0.75, image_angle, image_blend, image_alpha);
+	draw_sprite_ext(spr_button, gamepad_button_check(global.char1.gamepad_id, global.char0.cont_parry), (room_width/4)*3, (room_height/3)*2, 0.75, 0.75, image_angle, image_blend, image_alpha);
 	
-	if (gamepad_button_check(0, gp_face1) && gamepad_button_check(1, gp_face1))
+	if (gamepad_button_check(global.char0.gamepad_id, global.char0.cont_parry) && gamepad_button_check(global.char1.gamepad_id, global.char0.cont_parry))
 	{
 		global.gamestart++;
 		

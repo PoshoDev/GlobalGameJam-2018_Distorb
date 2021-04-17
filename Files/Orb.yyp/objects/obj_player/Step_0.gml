@@ -1,4 +1,4 @@
-/// @description
+
 depth = -y;
 
 if (!global.gameover)
@@ -8,7 +8,7 @@ if (!global.gameover)
 		/// ACTIONS
 		if (holding)
 		{
-			if (obj_orb.reach && gamepad_button_check_released(gamepad_id, gp_face1)) // Passes
+			if (obj_orb.reach && gamepad_button_check_released(gamepad_id, cont_parry)) // Passes
 			{
 				holding = 0;
 		
@@ -26,7 +26,7 @@ if (!global.gameover)
 		}
 		else
 		{
-			if (gamepad_button_check(gamepad_id, gp_face1)) // Receives
+			if (gamepad_button_check(gamepad_id, cont_parry)) // Receives
 				stand = true;	
 			else
 				stand = false
@@ -34,7 +34,7 @@ if (!global.gameover)
 	
 /// MOVEMENT
 		// X Axis, sssson!!
-		gamepad_x = gamepad_axis_value(gamepad_id, gp_axislh);
+		gamepad_x = gamepad_axis_value(gamepad_id, cont_move_h);
 	
 		speed_current = global.speed_mult;
 		if (holding)
@@ -62,7 +62,7 @@ if (!global.gameover)
 		}
 	
 		// Y Axis, ssssis!!
-		gamepad_y = gamepad_axis_value(gamepad_id, gp_axislv);
+		gamepad_y = gamepad_axis_value(gamepad_id, cont_move_v);
 
 		if (gamepad_y > global.gamepad_deadzone)
 		{

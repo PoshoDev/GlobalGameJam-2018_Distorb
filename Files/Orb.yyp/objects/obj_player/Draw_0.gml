@@ -6,7 +6,7 @@ if (holding || stand)
 else
 	index_hands = 0;
 
-if (gamepad_id == 0)
+if (char == 0)
 {
 	if (moving)
 		draw_sprite_ext(spr_fatty_body, image_index, x, y, scale, scale+bump, image_angle, image_blend, image_alpha);

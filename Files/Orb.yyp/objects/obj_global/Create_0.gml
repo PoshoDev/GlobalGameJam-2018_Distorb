@@ -1,5 +1,8 @@
-/// @description
+
 randomize();
+
+enum gmode { single, double };
+global.gamemode = gmode.single;
 
 global.gamestart = 0;
 global.gamepad_deadzone = 0.15;
@@ -38,3 +41,7 @@ i = irandom_range(0, 255);
 j = irandom_range(0, 255);
 k = irandom_range(0, 255);
 l = irandom_range(0, 255);*/
+
+global.char0 = instance_create_depth(room_width*0.25, room_height, 1, obj_player);
+global.char1 = instance_create_depth(room_width*0.75, room_height, 1, obj_player);
+instance_create_depth(room_width*0.50, room_height, 1, obj_orb);
